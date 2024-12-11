@@ -197,32 +197,34 @@
 <script>
     // Подключение XML-файла
     fetch("data.xml")
-        .then(response => { //обработки результата запроса, когда файл успешно загружен. содержит данные о статусе
-            if (!response.ok) {
-                throw new Error("Не удалось загрузить XML-файл");
-            }
-            return response.text(); // Получаем текст XML
-        })
-        .then(xmlText => {
-            const parser = new DOMParser(); // Создаем объект который позволит нам преобразовать строку текста в формат XML
-            const xmlDoc = parser.parseFromString(xmlText, "application/xml"); // реализуем в полноценный XML-документ
-            // Извлекаем данные из XML и заполняем таблицу
-            const members = xmlDoc.getElementsByTagName("member"); //Извлекаем все элементы <member> из XML-документа
-            const tbody = document.querySelector(".members-table tbody");//получаем доступ к части таблицы, в которую будем добавлять новые строки
-            Array.from(members).forEach(member => { //извлекать его атрибуты и добавлять данные в таблицу
-                const name = member.getAttribute("name"); //данные будут использованы для заполнения строки таблицы
-                const birthYear = member.getAttribute("birthYear");
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Не удалось загрузить XML-файл");
+        }
+        return response.text();
+    })
+    .then(xmlText => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, "application/xml");
+        const members = xmlDoc.getElementsByTagName("member");
+        const tbody = document.querySelector(".members-table tbody");
 
-                // Создаем новую строку таблицы
-                const row = document.createElement("tr"); // новый элемент
-                row.innerHTML = `
-                    <td>${name}</td>
-                    <td>${birthYear}</td>
-                `;
-                tbody.appendChild(row); // Добавляем строку в таблицу
-            });
-        })
-        .catch(error => console.error("Ошибка загрузки XML:", error)); // Обрабатываем ошибки
+        // Очистите таблицу перед добавлением новых данных
+        tbody.innerHTML = ""; 
+
+        Array.from(members).forEach(member => {
+            const name = member.getAttribute("name");
+            const birthYear = member.getAttribute("birthYear");
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${name}</td>
+                <td>${birthYear}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    })
+    .catch(error => console.error("Ошибка загрузки XML:", error));
 
     // Фильтрация таблицы
     document.getElementById("filter-input").addEventListener("input", function () {
