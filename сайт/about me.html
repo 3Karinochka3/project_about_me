@@ -1,0 +1,430 @@
+<html>
+<head>
+    <title>My universe</title>
+    <link rel="stylesheet" href="styles.css"/>  <!--подключение css-->
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="card1">
+        
+        <h1>Начнем пожалуй с самого главного: Танцы</h1>
+        
+
+    
+    </div>
+    <div class="card">
+        <div class="info2">
+            <div class="info">
+                <img src="BTS.jfif"/>
+            </div>
+
+            <div class="info1">
+                <p style="font-size:25px;">Все, кто впервые знакомится со мной знают, что я занимаюсь танцами.</p>
+                <p style="font-size:25px;">В детстве я особо не танцевала. Я решила пойти на танцы только в осознанном возрасте. Пришла в команду в 2022 году 22 июня и еще ни разу не пожалела об этом.</p>
+                <p style="font-size:25px;">Моя команда называется <strong>The union team</strong>. Это кпоп команда. До этого я не слушала кпоп, но теперь не представляю свою жизнь без него.</p>
+                <p style="font-size:25px;">Кстати о кпоп. Ниже список моих любимых групп </p>
+                
+                <div>
+                    <button id="toggle-groups">Показать/Скрыть список групп</button> 
+                </div>
+                <nav>
+                    <ul class="custom-list">
+                        <li style="font-size:20px;"><a href="#p1">BTS</a></li>  
+                    <li style="font-size:20px;">Ateez</li>
+                    <li style="font-size:20px;">Seventeen</li>
+                    <li style="font-size:20px;">Treasure</li>
+                    <li style="font-size:20px;">Xikers</li>
+                    <li style="font-size:20px;">Victon</li>
+                    <li style="font-size:20px;">The boyz</li>
+                    <li style="font-size:20px;">The KingDom</li>
+                    <li style="font-size:20px;">Txt</li>
+                    <li style="font-size:20px;">Itzy</li>
+                    <li style="font-size:20px;">(G)Idle</li>
+                    <li style="font-size:20px;">XG</li>
+                    <li style="font-size:20px;">Taemin(это участник группы Riize)</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+                                                      <!--Визуальные, метод по обработке событий, DOM-->
+    <script>
+        
+        $(document).ready(function () {
+    // Плавное переключение списка
+    $(".custom-list").slideUp(); // Список скрыт изначально
+    $("#toggle-groups").click(function () {
+        $(".custom-list").slideToggle(500); // Плавное переключение за 500 мс
+        $(this).text($(this).text() === "Показать список групп" ? "Скрыть список групп" : "Показать список групп");
+        // Применение изменения стиля кнопки
+        $(this).css({
+            "background-color": "#4CAF50",  // Зеленый фон
+            "color": "white",               // Белый текст
+            "font-size": "16px",            // Увеличенный шрифт
+            "border": "none",               // Убираем рамку
+            "padding": "10px 20px",         // Внутренние отступы
+            "cursor": "pointer"             // Указатель вместо стрелки
+        });
+        
+    });
+
+});
+
+
+
+    </script>
+                                         
+    <script>
+        const list = document.querySelector("nav ul"); // Находим элемент ul внутри элемента навигации (nav)
+        const items = Array.from(list.children);// Преобразуем элементы ul (элементы li) в массив
+        items.sort((a, b) => a.textContent.localeCompare(b.textContent));// Сортируем элементы по алфавиту на основе их текстового содержимого
+        //localeCompare позволяет выполнять корректное алфавитное сравнение
+        items.forEach(item => list.appendChild(item));// Проходим по каждому элементу и добавляем его обратно в ul в отсортированном порядке
+        //appendChild перемещает уже существующий элемент
+    </script> 
+                                   
+    <script>
+        const customList = document.querySelector(".custom-list"); //сохраняет ссылку на него в переменную customList
+        customList.style.color = "#cd3030";
+        customList.style.padding = "10px";
+    </script>
+
+    <div class="card">
+        <h2 style="font-size:37px;">Своими руками </h2>
+        
+        <table cellspacing="20">
+            <tr>
+                <td>
+                    <img src="rose.jfif" class="picture2"/>
+                </td>
+                <td>
+                    <p style="font-size:30px;">Я очень люблю делать что-то своими руками. Не важно что это будет - рисование, оригами, бисероплетение, вещи из дерева и других материалов и многое другое. </p>
+                </td>
+            
+        </table>
+    </div>
+
+
+    <div class="card">
+        <h3 style="font-size:37px;">Фотки </h3>
+        
+        <table cellspacing="20">
+            <tr>
+                <td>
+                    <img src="photo.jpg" width="400"/>
+                </td>
+                <td>
+                    <p style="font-size:28px;">Я ходила на курсы фотографа. Снимаю я с детства, так что все что вижу фотаю. Я во всем вижу эстетику. </p>
+                    <p style="font-size:28px;">Конечно сейчас у меня нет возможности брать фотик, но это не мешает мне запечатлять интересные и красивые места и людей.</p>
+                    <p style="font-size:28px;">Вот что я люблю фотать больше всего</p>
+                    <div class="size">
+                        <ul class="custom-list">
+                            <li style="font-size:23px;">Природу</li>
+                            <li style="font-size:23px;">Животных</li>
+                            <li style="font-size:23px;">Людей</li>
+                            <li style="font-size:23px;">Красивые места</li>
+                            <li style="font-size:23px;">Редко, но медко архитектуру</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <p style="font-size:23px;">Мои фотографии, танцы и все, что связано со мной, можно посмотреть у меня в инст</p>
+        <ul>
+            <li id="link"><a href="https://www.instagram.com/3karinochka3?igsh=aHU1c2RuZ3FicmJk" target="_blank">Инстаграмм</a></li> 
+        </ul>
+    </div>
+
+
+    <div class="card3">
+        <div class="colored-letter">  <!--буквица-->
+            <h4 class="bts" >Немного о BTS</h4>
+        </div>
+        
+        <div id="p1" class="flex-container">
+            <img src="bbb.jfif" width="450" />
+            <div>
+                <p>BTS, также известная как Bangtan Sonyeondan, — южнокорейская музыкальная группа, образованная в 2013 году. Она состоит из семи участников: RM, Jin, Suga, J-Hope, Jimin, V и Jungkook. Группа известна своим разнообразным музыкальным стилем, который включает K-pop, хип-хоп и R&B. BTS активно обсуждает важные темы, такие как психическое здоровье, самооценка и социальные проблемы, что привлекает множество поклонников по всему миру.</p>
+                
+                <p>Их дебютный альбом "2 Cool 4 Skool" получил положительные отзывы и положил начало их карьере. BTS стали первыми корейскими артистами, достигнувшими вершин Billboard Hot 100 и Billboard 200. Группа активно использует социальные сети для взаимодействия с фанатами, что способствовало их глобальной популярности.</p>
+                
+                <p>В 2020 году они выпустили сингл "Dynamite", который стал огромным международным хитом. BTS также получили множество наград, включая Billboard Music Awards и American Music Awards. Их преданность музыке и обществу сделала их культурными иконами для миллионов людей.</p>
+            </div>
+        </div>
+    </div>
+   
+    <title>Таблица участников</title>
+    <style>
+        .members-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .members-table th, .members-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .members-table th {
+            background-color: #f4f4f4;
+            cursor: pointer;
+        }
+
+        #filter-input {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 200px;
+        }
+    </style>
+    
+<div>
+    <input type="text" id="filter-input" placeholder="Фильтровать по имени...">
+</div>
+<table class="members-table">
+    <thead>
+        <tr>
+            <th>Участник</th>
+            <th>Год рождения</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Шуга</td>
+            <td>1999</td>
+        </tr>
+        <tr>
+            <td>Намджун</td>
+            <td>1989</td>
+        </tr>
+        <tr>
+            <td>Тэхен</td>
+            <td>1990</td>
+        </tr>
+        <tr>
+            <td>Чимин</td>
+            <td>1989</td>
+        </tr>
+        <tr>
+            <td>Чонгук</td>
+            <td>1991</td>
+        </tr>
+        <tr>
+            <td>Хосок</td>
+            <td>1992</td>
+        </tr>
+        <tr>
+            <td>Джин</td>
+            <td>1990</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    // Подключение XML-файла
+    fetch("data.xml")
+        .then(response => { //обработки результата запроса, когда файл успешно загружен. содержит данные о статусе
+            if (!response.ok) {
+                throw new Error("Не удалось загрузить XML-файл");
+            }
+            return response.text(); // Получаем текст XML
+        })
+        .then(xmlText => {
+            const parser = new DOMParser(); // Создаем объект который позволит нам преобразовать строку текста в формат XML
+            const xmlDoc = parser.parseFromString(xmlText, "application/xml"); // реализуем в полноценный XML-документ
+            // Извлекаем данные из XML и заполняем таблицу
+            const members = xmlDoc.getElementsByTagName("member"); //Извлекаем все элементы <member> из XML-документа
+            const tbody = document.querySelector(".members-table tbody");//получаем доступ к части таблицы, в которую будем добавлять новые строки
+            Array.from(members).forEach(member => { //извлекать его атрибуты и добавлять данные в таблицу
+                const name = member.getAttribute("name"); //данные будут использованы для заполнения строки таблицы
+                const birthYear = member.getAttribute("birthYear");
+
+                // Создаем новую строку таблицы
+                const row = document.createElement("tr"); // новый элемент
+                row.innerHTML = `
+                    <td>${name}</td>
+                    <td>${birthYear}</td>
+                `;
+                tbody.appendChild(row); // Добавляем строку в таблицу
+            });
+        })
+        .catch(error => console.error("Ошибка загрузки XML:", error)); // Обрабатываем ошибки
+
+    // Фильтрация таблицы
+    document.getElementById("filter-input").addEventListener("input", function () {
+        const filter = this.value.toLowerCase(); // Получаем текст фильтра и приводим его к нижнему регистру
+        const rows = document.querySelectorAll(".members-table tbody tr"); // Находим строки таблицы
+        rows.forEach(row => {
+            const name = row.cells[0].textContent.toLowerCase(); // Сравниваем фильтр с именем из первой колонки
+            row.style.display = name.includes(filter) ? "" : "none"; // Скрываем или показываем строку
+        });
+    });
+
+    // Сортировка таблицы
+    //пройходимся по всем заголовкам таблицы и применяем определенные действия для каждого из них
+    document.querySelectorAll(".members-table th").forEach((header, index) => {
+        header.addEventListener("click", () => {
+            const table = header.closest("table"); // Получаем текущую таблицу
+            const rows = Array.from(table.querySelectorAll("tbody tr")); // Преобразуем строки в массив
+            const isAscending = header.classList.contains("asc"); // Проверяем, отсортирована ли колонка по возрастанию
+            header.classList.toggle("asc", !isAscending); // Переключаем класс сортировки
+            header.classList.toggle("desc", isAscending);//сортировка по убыванию
+
+            // Сортируем строки
+            rows.sort((a, b) => {
+                const cellA = a.cells[index].textContent; // Значение ячейки в текущей строке
+                const cellB = b.cells[index].textContent;
+                return isAscending
+                    ? cellA.localeCompare(cellB, undefined, { numeric: true }) // Сравниваем строки по возрастанию
+                    : cellB.localeCompare(cellA, undefined, { numeric: true }); // Сравниваем строки по убыванию
+            });
+
+            // Обновляем порядок строк в таблице
+            const tbody = table.querySelector("tbody");
+            rows.forEach(row => tbody.appendChild(row)); // Перемещаем строки в новом порядке
+        });
+    });
+</script>
+
+        
+
+
+
+    <div id="pr">  
+        <form action="thanks.html" method="get" class="form-example">
+            <div class="form-group">
+                <label for="interesting">Понравился сайт?: </label>
+                <input type="text" name="interesting" id="interesting" required />
+            </div>
+            <div class="form-group">
+                <label for="wish">Пожелания: </label>
+                <input type="text" name="wish" id="wish" required />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Отправить" />
+            </div>
+            <!-- Кнопки для добавления и удаления полей -->
+            <button id="add-field">Добавить поле</button>
+            <button id="remove-field">Удалить поле</button>
+        </form>
+    </div>
+    <script>
+        // Найти форму и кнопки
+        const form = document.querySelector(".form-example");
+        const addButton = document.getElementById("add-field");
+        const removeButton = document.getElementById("remove-field");
+
+        // Счетчик для дополнительных полей
+        let additionalFieldCount = 0;
+
+        // Обработчик для добавления поля
+        addButton.addEventListener("click", () => {
+            // Создать div для новой группы формы
+            const newFormGroup = document.createElement("div");// Создаем новый div для дополнительной группы формы
+            newFormGroup.classList.add("form-group"); // Добавляем класс для отступов 
+            newFormGroup.id = `additional-field-${additionalFieldCount}`; // Уникальный id для каждого поля
+
+            // Создать метку для нового поля
+            const label = document.createElement("label"); //текст 
+            label.textContent = `Введите пожелания ${additionalFieldCount}: `;
+
+            // Создать новое текстовое поле
+            const input = document.createElement("input");
+            input.type = "text"; // Тип поля ввода — текст
+            input.name = `additionalField${additionalFieldCount}`; // Уникальное имя для каждого поля
+            input.required = true; // Чтобы пользователь  не введет значение в это поле и попытается отправить форму, 
+            //браузер предупредит его о необходимости заполнить поле
+
+            // Добавить метку и поле в группу
+            newFormGroup.appendChild(label);
+            newFormGroup.appendChild(input);
+
+            // Добавить группу в форму
+            form.appendChild(newFormGroup);
+
+            // Увеличить счетчик
+            additionalFieldCount++;
+        });
+
+        // Обработчик для удаления последнего добавленного поля
+        removeButton.addEventListener("click", () => {
+            if (additionalFieldCount > 0) {
+                // Найти последнее добавленное поле по id
+                const lastField = document.getElementById(`additional-field-${additionalFieldCount - 1}`);
+                if (lastField) {
+                    // Удалить элемент из формы
+                    form.removeChild(lastField);
+
+                    // Уменьшить счетчик
+                    additionalFieldCount--;
+                }
+            }
+        });
+    </script>
+
+    <script>
+    // Изменение стилей контейнера формы
+    const formContainer = document.getElementById("pr");
+    formContainer.style.backgroundColor = "#f5f5f5"; // светло-серый фон
+    formContainer.style.padding = "20px"; // отступы внутри
+    formContainer.style.borderRadius = "8px"; // Скругляем углы
+    formContainer.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.2)"; // добавление тени
+
+    // Изменение стилей для полей ввода
+    const formInputs = document.querySelectorAll(".form-group input[type='text']");
+    formInputs.forEach(input => {
+        input.style.width = "100%"; // Устанавливаем ширину полей ввода
+        input.style.padding = "10px"; // Добавляем внутренний отступ
+        input.style.marginTop = "5px"; // Добавляем небольшой отступ сверху для каждого текстового поля
+        input.style.marginBottom = "10px"; // Добавляем отступ снизу для равномерного расстояния между полями
+        input.style.border = "1px solid #ccc"; // Устанавливаем светло-серую рамку для полей ввода
+        input.style.borderRadius = "4px"; // Скругляем углы рамки
+        input.setAttribute("placeholder", "Введите текст"); // добавление подсказки внутри
+    });
+    // Смена стиля текста внутри меток
+    const labels = document.querySelectorAll(".form-group label"); // Находим все метки (label) внутри формы
+        labels.forEach(label => { // Применяем стили ко всем меткам
+            label.style.fontSize = "18px";
+            label.style.color = "#333"; // темный цвет текста
+    });
+
+    // Изменение стиля кнопки отправки
+    const submitButton = document.querySelector(".form-group input[type='submit']");
+    submitButton.style.backgroundColor = "#4CAF50"; // зеленый цвет фона
+    submitButton.style.color = "white"; // белый цвет текста
+    submitButton.style.padding = "10px 20px"; // Добавляем отступы внутри кнопки
+    submitButton.style.border = "none"; // Убираем границу кнопки
+    submitButton.style.borderRadius = "5px"; // Скругляем углы кнопки
+    submitButton.style.cursor = "pointer"; // Изменяем курсор на указатель при наведении на кнопку
+    submitButton.style.fontSize = "16px"; // Устанавливаем размер шрифта для текста кнопки
+
+
+</script>
+
+<div class="fixed"><h5 class="smile">Улыбнись</h5></div> <!--фиксированное позиционирование-->
+
+
+    <script>
+    // Запрашиваем имя пользователя с помощью prompt
+    const userName = window.prompt("Как вас зовут?");
+        //prompt: используется для запроса ввода текста
+    // Если пользователь ввел имя
+    if (userName) {
+    // Спрашиваем, добавлять ли приветствие
+    const showGreeting = window.confirm("Добавить приветствие на страницу?");
+
+    // Если пользователь нажал "ОК"
+    if (showGreeting) {
+        // Создаем текст приветствия с использованием BOM
+        const greetingMessage = `Привет, ${userName}! Добро пожаловать на мою страницу о танцах и творчестве.`;
+
+        // Выводим приветствие в окне alert
+        window.alert(greetingMessage);
+    }
+}
+    </script>
+</body>
+</html>
