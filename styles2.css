@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание */
+    font-size: 40px;
+}
+
+.float-image {
+    float: right; /*обтеканиe */
+    margin: 0 auto; /* Отступы вокруг изображения */
+    width: auto; /* Ширина изображения */
+}
+[class~="highlight"] {  /*атрибут с частичным совпадением*/
+    background-color: yellow; /* Применится к элементам с классом, содержащим "highlight" */
+}
+
